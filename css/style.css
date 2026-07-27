@@ -603,6 +603,20 @@ footer {
     line-height: 1.6;
 }
 
+.credit {
+    margin-top: 14px;
+}
+
+.credit a {
+    color: #a27b87;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.credit a:hover {
+    text-decoration: underline;
+}
+
 
 /* =========================
    MOBILE
