@@ -1,1 +1,681 @@
-.
+/* =========================
+   ROOT
+========================= */
+
+:root {
+    --white: #ffffff;
+
+    --pink: #f7cbd9;
+    --pink-soft: #fff4f7;
+    --pink-hover: #fce8ee;
+
+    --text: #242124;
+    --muted: #999397;
+
+    --border: #eee5e8;
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+
+    background: var(--white);
+    color: var(--text);
+
+    font-family: "DM Sans", sans-serif;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: calc(100% - 40px);
+    max-width: 620px;
+
+    margin: 0 auto;
+    padding: 42px 0 60px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.logo {
+    margin-bottom: 65px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+}
+
+h1 {
+    margin: 0;
+
+    font-size: clamp(42px, 8vw, 56px);
+    line-height: 1;
+
+    font-weight: 500;
+    letter-spacing: -3px;
+}
+
+.subtitle {
+    max-width: 340px;
+
+    margin: 24px 0 55px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+
+/* =========================
+   BOOK LIST
+========================= */
+
+#bookList {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+/* =========================
+   BOOK
+========================= */
+
+.book {
+    padding: 18px;
+
+    background: var(--pink-soft);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.book-header {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+.book-name {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 5px 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: var(--text);
+
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.book-name::placeholder {
+    color: #b8afb2;
+}
+
+
+/* =========================
+   DELETE BOOK
+========================= */
+
+.delete-book {
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--white);
+    color: #aaa;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.delete-book:active {
+    transform: scale(.94);
+}
+
+
+/* =========================
+   CATEGORY
+========================= */
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.category-row {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        75px
+        55px
+        25px;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+.category-name,
+.page-input {
+    width: 100%;
+    min-width: 0;
+
+    padding: 11px 10px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    outline: none;
+
+    background: var(--white);
+    color: var(--text);
+
+    font-size: 13px;
+}
+
+.category-name:focus,
+.page-input:focus {
+    border-color: var(--pink);
+}
+
+.page-input {
+    text-align: center;
+}
+
+.category-name::placeholder,
+.page-input::placeholder {
+    color: #bbb4b7;
+}
+
+
+/* =========================
+   PAPER RESULT
+========================= */
+
+.paper-result {
+    color: var(--muted);
+
+    font-size: 10px;
+    text-align: right;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   DELETE CATEGORY
+========================= */
+
+.delete-category {
+    width: 25px;
+    height: 25px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+    color: #b8afb2;
+
+    cursor: pointer;
+}
+
+.delete-category:active {
+    background: var(--pink-hover);
+}
+
+
+/* =========================
+   ADD CATEGORY
+========================= */
+
+.add-category {
+    width: 100%;
+
+    margin-top: 12px;
+    padding: 10px;
+
+    border: 1px dashed #e3cbd3;
+    border-radius: 8px;
+
+    background: transparent;
+    color: #a47e8a;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.add-category:active {
+    background: var(--pink-hover);
+}
+
+
+/* =========================
+   BOOK TOTAL
+========================= */
+
+.book-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 15px;
+    padding-top: 14px;
+
+    border-top: 1px solid #eddde2;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.book-total strong {
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* =========================
+   ADD BOOK
+========================= */
+
+.add-book {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    width: 100%;
+
+    margin-top: 12px;
+    padding: 15px;
+
+    border: 1px dashed #e3cbd3;
+    border-radius: 10px;
+
+    background: var(--pink-soft);
+    color: #9d7180;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+.add-book span {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.add-book:active {
+    background: var(--pink-hover);
+}
+
+
+/* =========================
+   SETTINGS
+========================= */
+
+.settings {
+    margin-top: 55px;
+}
+
+.input-group {
+    margin-bottom: 22px;
+}
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.main-input {
+    width: 100%;
+
+    padding: 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    outline: none;
+
+    background: var(--white);
+    color: var(--text);
+
+    font-size: 16px;
+}
+
+.main-input:focus {
+    border-color: var(--pink);
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+.price-wrapper {
+    display: flex;
+    align-items: center;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: var(--white);
+
+    overflow: hidden;
+}
+
+.price-wrapper:focus-within {
+    border-color: var(--pink);
+}
+
+.price-wrapper span {
+    padding-left: 16px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+}
+
+.price-wrapper input {
+    flex: 1;
+
+    width: 100%;
+
+    padding: 16px 16px 16px 8px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: var(--text);
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+.result {
+    margin-top: 55px;
+    padding-top: 35px;
+
+    border-top: 1px solid var(--border);
+}
+
+.result-label {
+    color: var(--muted);
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+}
+
+
+/* =========================
+   MAIN RESULT
+========================= */
+
+.main-result {
+    display: flex;
+    align-items: baseline;
+
+    gap: 8px;
+
+    margin: 17px 0 30px;
+}
+
+.main-result strong {
+    font-size: 58px;
+    line-height: 1;
+
+    font-weight: 400;
+
+    letter-spacing: -4px;
+}
+
+.main-result span {
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   RESULT SUMMARY
+========================= */
+
+.result-summary {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    padding: 18px 0;
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.result-summary > div {
+    padding: 0 14px;
+
+    border-right: 1px solid var(--border);
+}
+
+.result-summary > div:first-child {
+    padding-left: 0;
+}
+
+.result-summary > div:last-child {
+    border-right: none;
+}
+
+.result-summary span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+.result-summary strong {
+    display: block;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* =========================
+   COST
+========================= */
+
+.cost-card {
+    margin-top: 14px;
+    padding: 20px;
+
+    background: var(--pink-soft);
+
+    border: 1px solid #f2dce3;
+    border-radius: 12px;
+}
+
+.cost-card span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #a27b87;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: .8px;
+    text-transform: uppercase;
+}
+
+.cost-card strong {
+    display: block;
+
+    color: var(--text);
+
+    font-size: 27px;
+    font-weight: 500;
+
+    letter-spacing: -1px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 38px;
+
+    color: #b0aaac;
+
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 520px) {
+
+    .container {
+        width: calc(100% - 32px);
+
+        padding-top: 34px;
+    }
+
+    .logo {
+        margin-bottom: 58px;
+    }
+
+    h1 {
+        font-size: 43px;
+
+        letter-spacing: -2.5px;
+    }
+
+    .subtitle {
+        margin-bottom: 50px;
+
+        font-size: 14px;
+    }
+
+    .book {
+        padding: 14px;
+    }
+
+    .category-row {
+        grid-template-columns:
+            minmax(0, 1fr)
+            62px
+            47px
+            22px;
+
+        gap: 5px;
+    }
+
+    .category-name {
+        padding: 10px 8px;
+    }
+
+    .page-input {
+        padding: 10px 4px;
+    }
+
+    .paper-result {
+        font-size: 9px;
+    }
+
+    .settings {
+        margin-top: 50px;
+    }
+
+    .result {
+        margin-top: 50px;
+    }
+
+    .main-result strong {
+        font-size: 54px;
+    }
+
+    .result-summary > div {
+        padding: 0 9px;
+    }
+
+    .result-summary strong {
+        font-size: 12px;
+    }
+
+}
