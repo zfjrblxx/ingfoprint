@@ -1,1 +1,144 @@
-.
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IngfoPrint</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<main class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">INGFOPRINT.</div>
+
+        <h1>
+            Hitung kertas<br>
+            lebih gampang.
+        </h1>
+
+        <p class="subtitle">
+            Buku, soal, modul, dan kebutuhan print lainnya.
+        </p>
+    </header>
+
+
+    <!-- ITEM -->
+    <section class="items-section">
+
+        <div id="bookList"></div>
+
+        <button
+            type="button"
+            class="add-book"
+            onclick="addBook()"
+        >
+            <span>+</span>
+            Tambah Buku / Item
+        </button>
+
+    </section>
+
+
+    <!-- SETTINGS -->
+    <section class="settings">
+
+        <div class="input-group">
+            <label for="quantity">
+                Jumlah Sekolah / Rangkap
+            </label>
+
+            <input
+                type="number"
+                id="quantity"
+                class="main-input"
+                value="1"
+                min="1"
+                inputmode="numeric"
+            >
+        </div>
+
+
+        <div class="input-group">
+            <label for="reamPrice">
+                Harga Kertas / Rim
+            </label>
+
+            <div class="price-wrapper">
+                <span>Rp</span>
+
+                <input
+                    type="number"
+                    id="reamPrice"
+                    placeholder="65.000"
+                    min="0"
+                    inputmode="numeric"
+                >
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- RESULT -->
+    <section class="result">
+
+        <span class="result-label">
+            Total Kebutuhan
+        </span>
+
+        <div class="main-result">
+            <strong id="grandTotal">0</strong>
+            <span>lembar</span>
+        </div>
+
+
+        <div class="result-summary">
+
+            <div>
+                <span>Kebutuhan</span>
+                <strong id="reamNeed">0 rim</strong>
+            </div>
+
+            <div>
+                <span>Beli</span>
+                <strong id="reamBuy">0 rim</strong>
+            </div>
+
+            <div>
+                <span>Sisa</span>
+                <strong id="remaining">0 lembar</strong>
+            </div>
+
+        </div>
+
+
+        <div class="cost-card">
+            <span>Total Biaya Kertas</span>
+            <strong id="totalCost">Rp0</strong>
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        Bolak-balik &nbsp;•&nbsp; 1 lembar = 2 halaman
+        &nbsp;•&nbsp; 1 rim = 500 lembar
+    </footer>
+
+</main>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
