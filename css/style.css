@@ -1,30 +1,29 @@
-/* =========================
-   INGFOPRINT — macOS STYLE
-========================= */
+/* ========================================
+   INGFOPRINT — macOS WINDOW
+======================================== */
 
 :root {
-    --bg: #f5f5f7;
-    --surface: rgba(255, 255, 255, 0.82);
-    --surface-solid: #ffffff;
+    --desktop: #e9e9ed;
+    --window: #ffffff;
+    --titlebar: #f6f6f6;
+
+    --surface: #f5f5f7;
+    --surface-hover: #eeeeF0;
 
     --pink: #ff8fb1;
     --pink-soft: #fff0f5;
-    --pink-hover: #ffe5ee;
+    --pink-hover: #ffe4ed;
 
     --text: #1d1d1f;
     --muted: #86868b;
 
-    --border: rgba(0, 0, 0, 0.08);
-
-    --shadow:
-        0 1px 2px rgba(0, 0, 0, 0.03),
-        0 8px 30px rgba(0, 0, 0, 0.05);
+    --border: rgba(0, 0, 0, 0.09);
 }
 
 
-/* =========================
+/* ========================================
    RESET
-========================= */
+======================================== */
 
 * {
     box-sizing: border-box;
@@ -36,8 +35,11 @@ html {
 
 body {
     margin: 0;
+    padding: 42px 20px;
 
-    background: var(--bg);
+    min-height: 100vh;
+
+    background: var(--desktop);
     color: var(--text);
 
     font-family:
@@ -45,7 +47,9 @@ body {
         BlinkMacSystemFont,
         "SF Pro Display",
         "SF Pro Text",
+        "Helvetica Neue",
         "DM Sans",
+        Arial,
         sans-serif;
 
     -webkit-font-smoothing: antialiased;
@@ -57,88 +61,191 @@ input {
 }
 
 
-/* =========================
-   CONTAINER
-========================= */
+/* ========================================
+   MAC WINDOW
+======================================== */
 
-.container {
-    width: calc(100% - 40px);
-    max-width: 520px;
+.mac-window {
+    width: 100%;
+    max-width: 580px;
 
     margin: 0 auto;
-    padding: 38px 0 60px;
+
+    background: var(--window);
+
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.15),
+        0 5px 18px rgba(0, 0, 0, 0.07);
 }
 
 
-/* =========================
+/* ========================================
+   TITLE BAR
+======================================== */
+
+.titlebar {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    height: 48px;
+
+    padding: 0 16px;
+
+    background: var(--titlebar);
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+
+    user-select: none;
+}
+
+
+/* ========================================
+   TRAFFIC LIGHT
+======================================== */
+
+.traffic-lights {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.traffic {
+    display: block;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    box-shadow:
+        inset 0 0 0 0.5px
+        rgba(0, 0, 0, 0.12);
+}
+
+.traffic.red {
+    background: #ff5f57;
+}
+
+.traffic.yellow {
+    background: #febc2e;
+}
+
+.traffic.green {
+    background: #28c840;
+}
+
+
+/* ========================================
+   WINDOW TITLE
+======================================== */
+
+.window-title {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: #5c5c5f;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.container {
+    width: calc(100% - 64px);
+    max-width: 470px;
+
+    margin: 0 auto;
+
+    padding: 45px 0 48px;
+}
+
+
+/* ========================================
    HEADER
-========================= */
+======================================== */
 
 .header {
-    padding: 6px 4px 0;
+    padding: 0;
 }
 
 .logo {
-    margin-bottom: 60px;
+    margin-bottom: 48px;
 
     color: var(--text);
 
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
 
-    letter-spacing: 1.8px;
+    letter-spacing: 1.6px;
 }
 
 h1 {
     margin: 0;
 
-    font-size: clamp(40px, 7vw, 52px);
+    font-size: 44px;
     line-height: 0.98;
 
     font-weight: 600;
-    letter-spacing: -2.8px;
+
+    letter-spacing: -2.6px;
 }
 
 .subtitle {
-    max-width: 350px;
+    max-width: 330px;
 
-    margin: 22px 0 48px;
+    margin: 20px 0 40px;
 
     color: var(--muted);
 
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.5;
 }
 
 
-/* =========================
-   BOOK LIST
-========================= */
+/* ========================================
+   ITEM LIST
+======================================== */
 
 #bookList {
     display: flex;
     flex-direction: column;
 
-    gap: 12px;
+    gap: 10px;
 }
 
 
-/* =========================
+/* ========================================
    BOOK CARD
-========================= */
+======================================== */
 
 .book {
-    padding: 16px;
+    padding: 15px;
 
-    background: var(--surface);
+    background: #ffffff;
 
     border: 1px solid var(--border);
-    border-radius: 18px;
+    border-radius: 12px;
 
-    box-shadow: var(--shadow);
-
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.025);
 }
 
 .book-header {
@@ -147,143 +254,42 @@ h1 {
 
     gap: 10px;
 
-    margin-bottom: 14px;
+    margin-bottom: 13px;
 }
 
 .book-name {
     flex: 1;
 
+    width: 100%;
     min-width: 0;
 
-    padding: 6px 2px;
+    padding: 5px 2px;
 
     border: none;
     outline: none;
 
     background: transparent;
+
     color: var(--text);
 
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
 }
 
 .book-name::placeholder {
-    color: #b0b0b5;
+    color: #aaaab0;
 }
 
 
-/* =========================
+/* ========================================
    DELETE BOOK
-========================= */
+======================================== */
 
 .delete-book {
-    width: 28px;
-    height: 28px;
-
-    padding: 0;
-
-    border: 1px solid var(--border);
-    border-radius: 50%;
-
-    background: rgba(0, 0, 0, 0.035);
-    color: var(--muted);
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    transition: .15s ease;
-}
-
-.delete-book:hover {
-    background: #eeeeef;
-    color: var(--text);
-}
-
-.delete-book:active {
-    transform: scale(.92);
-}
-
-
-/* =========================
-   CATEGORY
-========================= */
-
-.category-list {
     display: flex;
-    flex-direction: column;
-
-    gap: 7px;
-}
-
-.category-row {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        72px
-        52px
-        24px;
-
     align-items: center;
+    justify-content: center;
 
-    gap: 6px;
-}
-
-.category-name,
-.page-input {
-    width: 100%;
-    min-width: 0;
-
-    padding: 10px;
-
-    border: 1px solid var(--border);
-    border-radius: 10px;
-
-    outline: none;
-
-    background: rgba(255, 255, 255, 0.85);
-    color: var(--text);
-
-    font-size: 12px;
-
-    transition:
-        border-color .15s ease,
-        box-shadow .15s ease;
-}
-
-.category-name:focus,
-.page-input:focus {
-    border-color: var(--pink);
-
-    box-shadow:
-        0 0 0 3px rgba(255, 143, 177, 0.13);
-}
-
-.page-input {
-    text-align: center;
-}
-
-.category-name::placeholder,
-.page-input::placeholder {
-    color: #b3b3b8;
-}
-
-.paper-result {
-    color: var(--muted);
-
-    font-size: 9px;
-    text-align: right;
-
-    white-space: nowrap;
-}
-
-
-/* =========================
-   DELETE CATEGORY
-========================= */
-
-.delete-category {
     width: 24px;
     height: 24px;
 
@@ -292,108 +298,244 @@ h1 {
     border: none;
     border-radius: 50%;
 
-    background: transparent;
+    background: #eeeeF0;
+
+    color: #8e8e93;
+
+    font-size: 15px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        transform 0.15s ease;
+}
+
+.delete-book:hover {
+    background: #e4e4e6;
+}
+
+.delete-book:active {
+    transform: scale(0.9);
+}
+
+
+/* ========================================
+   CATEGORY
+======================================== */
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.category-row {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        66px
+        48px
+        22px;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.category-name,
+.page-input {
+    width: 100%;
+    min-width: 0;
+
+    padding: 9px;
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    outline: none;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    font-size: 11px;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+.category-name:focus,
+.page-input:focus {
+    background: #ffffff;
+
+    border-color: var(--pink);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255, 143, 177, 0.13);
+}
+
+.page-input {
+    text-align: center;
+}
+
+.category-name::placeholder,
+.page-input::placeholder {
     color: #aaaab0;
+}
+
+
+/* ========================================
+   PAPER RESULT
+======================================== */
+
+.paper-result {
+    color: var(--muted);
+
+    font-size: 8px;
+
+    text-align: right;
+
+    white-space: nowrap;
+}
+
+
+/* ========================================
+   DELETE CATEGORY
+======================================== */
+
+.delete-category {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 22px;
+    height: 22px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #aaaab0;
+
+    font-size: 13px;
 
     cursor: pointer;
 }
 
 .delete-category:hover {
-    background: rgba(0, 0, 0, 0.04);
+    background: #eeeeF0;
+
+    color: #66666a;
 }
 
 
-/* =========================
+/* ========================================
    ADD CATEGORY
-========================= */
+======================================== */
 
 .add-category {
     width: 100%;
 
-    margin-top: 11px;
-    padding: 9px;
+    margin-top: 10px;
+    padding: 8px;
 
     border: none;
-    border-radius: 9px;
+    border-radius: 7px;
 
-    background: #f2f2f4;
+    background: var(--surface);
+
     color: var(--muted);
 
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 500;
 
     cursor: pointer;
 
-    transition: .15s ease;
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
 }
 
 .add-category:hover {
-    background: #eaeaed;
+    background: #eeeeF0;
+
     color: var(--text);
 }
 
 
-/* =========================
+/* ========================================
    BOOK TOTAL
-========================= */
+======================================== */
 
 .book-total {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    margin-top: 13px;
-    padding-top: 13px;
+    margin-top: 12px;
+    padding-top: 12px;
 
     border-top: 1px solid var(--border);
 
     color: var(--muted);
 
-    font-size: 10px;
+    font-size: 9px;
 }
 
 .book-total strong {
     color: var(--text);
 
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
 }
 
 
-/* =========================
+/* ========================================
    ADD BOOK
-========================= */
+======================================== */
 
 .add-book {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    gap: 7px;
+    gap: 6px;
 
     width: 100%;
 
-    margin-top: 12px;
-    padding: 14px;
+    margin-top: 10px;
+    padding: 12px;
 
-    border: 1px solid rgba(255, 143, 177, 0.22);
-    border-radius: 14px;
+    border: 1px solid rgba(255, 143, 177, 0.28);
+    border-radius: 9px;
 
     background: var(--pink-soft);
+
     color: #b85d7b;
 
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
 
     cursor: pointer;
 
     transition:
-        background .15s ease,
-        transform .15s ease;
+        background 0.15s ease,
+        transform 0.15s ease;
 }
 
 .add-book span {
-    font-size: 17px;
+    font-size: 15px;
+    line-height: 1;
 }
 
 .add-book:hover {
@@ -401,32 +543,27 @@ h1 {
 }
 
 .add-book:active {
-    transform: scale(.985);
+    transform: scale(0.985);
 }
 
 
-/* =========================
+/* ========================================
    SETTINGS
-========================= */
+======================================== */
 
 .settings {
-    margin-top: 48px;
+    margin-top: 38px;
 
-    padding: 18px;
+    padding: 15px;
 
     background: var(--surface);
 
     border: 1px solid var(--border);
-    border-radius: 18px;
-
-    box-shadow: var(--shadow);
-
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    border-radius: 12px;
 }
 
 .input-group {
-    margin-bottom: 17px;
+    margin-bottom: 14px;
 }
 
 .input-group:last-child {
@@ -436,60 +573,62 @@ h1 {
 .input-group label {
     display: block;
 
-    margin: 0 3px 8px;
+    margin: 0 2px 7px;
 
     color: var(--muted);
 
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 600;
 
-    letter-spacing: .8px;
+    letter-spacing: 0.7px;
     text-transform: uppercase;
 }
 
 
-/* =========================
+/* ========================================
    INPUT
-========================= */
+======================================== */
 
 .main-input,
 .price-wrapper {
     width: 100%;
 
     border: 1px solid var(--border);
-    border-radius: 11px;
+    border-radius: 7px;
 
-    background: #f7f7f8;
+    background: #ffffff;
+
+    box-shadow:
+        inset 0 1px 1px
+        rgba(0, 0, 0, 0.02);
 
     transition:
-        border-color .15s ease,
-        box-shadow .15s ease,
-        background .15s ease;
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
 }
 
 .main-input {
-    padding: 13px 14px;
+    padding: 11px 12px;
 
     outline: none;
 
     color: var(--text);
 
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .main-input:focus {
-    background: #fff;
-
     border-color: var(--pink);
 
     box-shadow:
-        0 0 0 3px rgba(255, 143, 177, .13);
+        0 0 0 3px
+        rgba(255, 143, 177, 0.13);
 }
 
 
-/* =========================
+/* ========================================
    PRICE
-========================= */
+======================================== */
 
 .price-wrapper {
     display: flex;
@@ -499,20 +638,19 @@ h1 {
 }
 
 .price-wrapper:focus-within {
-    background: #fff;
-
     border-color: var(--pink);
 
     box-shadow:
-        0 0 0 3px rgba(255, 143, 177, .13);
+        0 0 0 3px
+        rgba(255, 143, 177, 0.13);
 }
 
 .price-wrapper span {
-    padding-left: 14px;
+    padding-left: 12px;
 
     color: var(--muted);
 
-    font-size: 13px;
+    font-size: 11px;
 }
 
 .price-wrapper input {
@@ -520,94 +658,95 @@ h1 {
 
     width: 100%;
 
-    padding: 13px 14px 13px 7px;
+    padding: 11px 12px 11px 6px;
 
     border: none;
     outline: none;
 
     background: transparent;
+
     color: var(--text);
 
-    font-size: 14px;
+    font-size: 12px;
 }
 
 
-/* =========================
+/* ========================================
    RESULT
-========================= */
+======================================== */
 
 .result {
-    margin-top: 18px;
+    margin-top: 12px;
 
-    padding: 20px;
+    padding: 16px;
 
-    background: var(--surface);
+    background: #ffffff;
 
     border: 1px solid var(--border);
-    border-radius: 18px;
+    border-radius: 12px;
 
-    box-shadow: var(--shadow);
-
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.025);
 }
 
 .result-label {
     color: var(--muted);
 
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 600;
 
-    letter-spacing: .9px;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
 }
 
 
-/* =========================
-   BIG RESULT
-========================= */
+/* ========================================
+   MAIN RESULT
+======================================== */
 
 .main-result {
     display: flex;
     align-items: baseline;
 
-    gap: 7px;
+    gap: 6px;
 
-    margin: 13px 0 25px;
+    margin: 11px 0 21px;
 }
 
 .main-result strong {
-    font-size: 50px;
+    font-size: 42px;
     line-height: 1;
 
     font-weight: 500;
 
-    letter-spacing: -3px;
+    letter-spacing: -2.7px;
 }
 
 .main-result span {
     color: var(--muted);
 
-    font-size: 11px;
+    font-size: 10px;
 }
 
 
-/* =========================
-   SUMMARY
-========================= */
+/* ========================================
+   RESULT SUMMARY
+======================================== */
 
 .result-summary {
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
 
-    padding: 14px 0;
+    padding: 12px 0;
 
     border-top: 1px solid var(--border);
 }
 
 .result-summary > div {
-    padding: 0 12px;
+    min-width: 0;
+
+    padding: 0 10px;
 
     border-right: 1px solid var(--border);
 }
@@ -625,46 +764,55 @@ h1 {
 .result-summary span {
     display: block;
 
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 
     color: var(--muted);
 
-    font-size: 9px;
+    font-size: 8px;
 }
 
 .result-summary strong {
     display: block;
 
-    font-size: 12px;
+    overflow: hidden;
+
+    color: var(--text);
+
+    font-size: 10px;
     font-weight: 600;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 
-/* =========================
-   TOTAL COST
-========================= */
+/* ========================================
+   COST CARD
+======================================== */
 
 .cost-card {
-    margin-top: 5px;
-    padding: 16px;
+    margin-top: 4px;
+    padding: 14px;
 
     background: var(--pink-soft);
 
-    border: 1px solid rgba(255, 143, 177, 0.18);
-    border-radius: 13px;
+    border: 1px solid
+        rgba(255, 143, 177, 0.20);
+
+    border-radius: 9px;
 }
 
 .cost-card span {
     display: block;
 
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 
     color: #ad7084;
 
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 600;
 
-    letter-spacing: .7px;
+    letter-spacing: 0.6px;
     text-transform: uppercase;
 }
 
@@ -673,35 +821,35 @@ h1 {
 
     color: var(--text);
 
-    font-size: 24px;
+    font-size: 21px;
     font-weight: 600;
 
-    letter-spacing: -1px;
+    letter-spacing: -0.8px;
 }
 
 
-/* =========================
+/* ========================================
    FOOTER
-========================= */
+======================================== */
 
 footer {
-    margin-top: 28px;
+    margin-top: 25px;
 
-    color: #a1a1a6;
+    color: #9a9a9f;
 
-    font-size: 9px;
+    font-size: 8px;
     line-height: 1.7;
 }
 
 .credit {
-    margin-top: 12px;
+    margin-top: 9px;
 }
 
 .credit a {
     color: #ad7084;
 
-    text-decoration: none;
     font-weight: 600;
+    text-decoration: none;
 }
 
 .credit a:hover {
@@ -709,90 +857,136 @@ footer {
 }
 
 
-/* =========================
+/* ========================================
    MOBILE
-========================= */
+======================================== */
 
-@media (max-width: 520px) {
+@media (max-width: 620px) {
+
+    body {
+        padding: 0;
+
+        background: #ffffff;
+    }
+
+
+    /* WINDOW JADI FULL SCREEN */
+
+    .mac-window {
+        max-width: none;
+        min-height: 100vh;
+
+        margin: 0;
+
+        border: none;
+        border-radius: 0;
+
+        box-shadow: none;
+    }
+
+
+    /* TITLEBAR */
+
+    .titlebar {
+        height: 46px;
+
+        padding: 0 14px;
+
+        position: sticky;
+        top: 0;
+
+        z-index: 100;
+
+        background:
+            rgba(246, 246, 246, 0.92);
+
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+    }
+
+
+    /* CONTENT */
 
     .container {
-        width: calc(100% - 28px);
+        width: calc(100% - 32px);
+        max-width: 470px;
 
-        padding-top: 28px;
-        padding-bottom: 45px;
+        padding:
+            34px
+            0
+            45px;
     }
+
 
     .logo {
-        margin-bottom: 52px;
+        margin-bottom: 45px;
     }
 
+
     h1 {
-        font-size: 41px;
+        font-size: 40px;
 
         letter-spacing: -2.4px;
     }
 
-    .subtitle {
-        margin-top: 19px;
-        margin-bottom: 42px;
 
-        font-size: 13px;
+    .subtitle {
+        margin-top: 18px;
+        margin-bottom: 38px;
+
+        font-size: 12px;
     }
 
-    .book,
-    .settings,
-    .result {
-        border-radius: 16px;
+
+    .settings {
+        margin-top: 34px;
+    }
+
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 400px) {
+
+    .container {
+        width: calc(100% - 26px);
+    }
+
+    h1 {
+        font-size: 37px;
     }
 
     .book {
-        padding: 14px;
+        padding: 13px;
     }
 
     .category-row {
         grid-template-columns:
             minmax(0, 1fr)
-            60px
-            45px
-            21px;
+            57px
+            42px
+            20px;
 
-        gap: 5px;
+        gap: 4px;
     }
 
     .category-name {
-        padding: 9px 7px;
+        padding: 8px 7px;
     }
 
     .page-input {
-        padding: 9px 3px;
+        padding: 8px 3px;
     }
 
     .paper-result {
-        font-size: 8px;
-    }
-
-    .settings {
-        margin-top: 42px;
-
-        padding: 15px;
-    }
-
-    .result {
-        margin-top: 12px;
-
-        padding: 17px;
-    }
-
-    .main-result strong {
-        font-size: 46px;
+        font-size: 7px;
     }
 
     .result-summary > div {
-        padding: 0 8px;
-    }
-
-    .result-summary strong {
-        font-size: 11px;
+        padding: 0 7px;
     }
 
 }
