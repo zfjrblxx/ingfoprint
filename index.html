@@ -15,136 +15,199 @@
 
 <body>
 
-<main class="container">
+<div class="mac-window">
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="logo">INGFOPRINT.</div>
+    <!-- MACOS TITLEBAR -->
+    <div class="titlebar">
 
-        <h1>
-            Hitung kertas<br>
-            lebih gampang.
-        </h1>
-
-        <p class="subtitle">
-            Buku, soal, modul, dan kebutuhan print lainnya.
-        </p>
-    </header>
-
-
-    <!-- ITEM -->
-    <section class="items-section">
-
-        <div id="bookList"></div>
-
-        <button
-            type="button"
-            class="add-book"
-            onclick="addBook()"
-        >
-            <span>+</span>
-            Tambah Buku / Item
-        </button>
-
-    </section>
-
-
-    <!-- SETTINGS -->
-    <section class="settings">
-
-        <div class="input-group">
-            <label for="quantity">
-                Jumlah Sekolah / Rangkap
-            </label>
-
-            <input
-                type="number"
-                id="quantity"
-                class="main-input"
-                value="1"
-                min="1"
-                inputmode="numeric"
-            >
+        <div class="traffic-lights">
+            <span class="traffic red"></span>
+            <span class="traffic yellow"></span>
+            <span class="traffic green"></span>
         </div>
 
+        <div class="window-title">
+            IngfoPrint
+        </div>
 
-        <div class="input-group">
-            <label for="reamPrice">
-                Harga Kertas / Rim
-            </label>
+    </div>
 
-            <div class="price-wrapper">
-                <span>Rp</span>
+
+    <!-- CONTENT -->
+    <main class="container">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div class="logo">
+                INGFOPRINT.
+            </div>
+
+            <h1>
+                Hitung kertas<br>
+                lebih gampang.
+            </h1>
+
+            <p class="subtitle">
+                Buku, soal, modul, dan kebutuhan print lainnya.
+            </p>
+
+        </header>
+
+
+        <!-- ITEM -->
+        <section class="items-section">
+
+            <div id="bookList"></div>
+
+            <button
+                type="button"
+                class="add-book"
+                onclick="addBook()"
+            >
+                <span>+</span>
+                Tambah Buku / Item
+            </button>
+
+        </section>
+
+
+        <!-- SETTINGS -->
+        <section class="settings">
+
+            <div class="input-group">
+
+                <label for="quantity">
+                    Jumlah Sekolah / Rangkap
+                </label>
 
                 <input
                     type="number"
-                    id="reamPrice"
-                    placeholder="65.000"
-                    min="0"
+                    id="quantity"
+                    class="main-input"
+                    value="1"
+                    min="1"
                     inputmode="numeric"
                 >
+
             </div>
-        </div>
-
-    </section>
 
 
-    <!-- RESULT -->
-    <section class="result">
+            <div class="input-group">
 
-        <span class="result-label">
-            Total Kebutuhan
-        </span>
+                <label for="reamPrice">
+                    Harga Kertas / Rim
+                </label>
 
-        <div class="main-result">
-            <strong id="grandTotal">0</strong>
-            <span>lembar</span>
-        </div>
+                <div class="price-wrapper">
+
+                    <span>Rp</span>
+
+                    <input
+                        type="number"
+                        id="reamPrice"
+                        placeholder="65.000"
+                        min="0"
+                        inputmode="numeric"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
 
 
-        <div class="result-summary">
+        <!-- RESULT -->
+        <section class="result">
+
+            <span class="result-label">
+                Total Kebutuhan
+            </span>
+
+
+            <div class="main-result">
+
+                <strong id="grandTotal">
+                    0
+                </strong>
+
+                <span>
+                    lembar
+                </span>
+
+            </div>
+
+
+            <div class="result-summary">
+
+                <div>
+                    <span>Kebutuhan</span>
+                    <strong id="reamNeed">
+                        0 rim
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>Beli</span>
+                    <strong id="reamBuy">
+                        0 rim
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>Sisa</span>
+                    <strong id="remaining">
+                        0 lembar
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <!-- TOTAL BIAYA -->
+            <div class="cost-card">
+
+                <span>
+                    Total Biaya Kertas
+                </span>
+
+                <strong id="totalCost">
+                    Rp0
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
 
             <div>
-                <span>Kebutuhan</span>
-                <strong id="reamNeed">0 rim</strong>
+                Bolak-balik • 1 lembar = 2 halaman • 1 rim = 500 lembar
             </div>
 
-            <div>
-                <span>Beli</span>
-                <strong id="reamBuy">0 rim</strong>
+            <div class="credit">
+                Created with ❤️ by
+
+                <a
+                    href="https://zfjrblxx.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    zfjrblxx
+                </a>
             </div>
 
-            <div>
-                <span>Sisa</span>
-                <strong id="remaining">0 lembar</strong>
-            </div>
+        </footer>
 
-        </div>
+    </main>
 
+</div>
 
-        <div class="cost-card">
-            <span>Total Biaya Kertas</span>
-            <strong id="totalCost">Rp0</strong>
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-    <footer>
-    <div>
-        Bolak-balik • 1 lembar = 2 halaman • 1 rim = 500 lembar
-    </div>
-
-    <div class="credit">
-        Created with ❤️ by
-        <a href="https://zfjrblxx.vercel.app/" target="_blank" rel="noopener">
-            zfjrblxx
-        </a>
-    </div>
-</footer>
-
-</main>
 
 <script src="js/script.js"></script>
 
